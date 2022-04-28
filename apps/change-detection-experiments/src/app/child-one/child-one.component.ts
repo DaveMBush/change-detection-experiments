@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy, Input, ViewEncapsulation } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'child-one',
@@ -9,5 +10,5 @@ import { Component, ChangeDetectionStrategy, Input, ViewEncapsulation } from '@a
 })
 export class ChildOneComponent {
   @Input()
-  someNumber = 0;
+  someNumber$?: Observable<number>;
 }
