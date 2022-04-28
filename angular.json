@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "projects": {
+    "change-detection-experiments": "apps/change-detection-experiments"
+  }
+}

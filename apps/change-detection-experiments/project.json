@@ -1,0 +1,93 @@
+{
+  "projectType": "application",
+  "root": "apps/change-detection-experiments",
+  "sourceRoot": "apps/change-detection-experiments/src",
+  "prefix": "change-detection-experiments2",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/change-detection-experiments",
+        "index": "apps/change-detection-experiments/src/index.html",
+        "main": "apps/change-detection-experiments/src/main.ts",
+        "polyfills": "apps/change-detection-experiments/src/polyfills.ts",
+        "tsConfig": "apps/change-detection-experiments/tsconfig.app.json",
+        "assets": [
+          "apps/change-detection-experiments/src/favicon.ico",
+          "apps/change-detection-experiments/src/assets"
+        ],
+        "styles": ["apps/change-detection-experiments/src/styles.css"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/change-detection-experiments/src/environments/environment.ts",
+              "with": "apps/change-detection-experiments/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "change-detection-experiments:build:production"
+        },
+        "development": {
+          "browserTarget": "change-detection-experiments:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "change-detection-experiments:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/change-detection-experiments/**/*.ts",
+          "apps/change-detection-experiments/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/change-detection-experiments"],
+      "options": {
+        "jestConfig": "apps/change-detection-experiments/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
