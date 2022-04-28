@@ -4,7 +4,6 @@ import {
   ChangeDetectionStrategy,
   Input,
 } from '@angular/core';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'child-two',
@@ -15,5 +14,5 @@ import { Observable } from 'rxjs';
 })
 export class ChildTwoComponent {
   @Input()
-  someNumber$?: Observable<number>;
+  someNumber: number | null = 0;
 }
